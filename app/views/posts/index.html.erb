@@ -1,0 +1,21 @@
+<h2>
+  <%= link_to '新規作成', new_post_path, class: 'header-menu' %>
+  Matsushin's blog
+</h2>
+
+<ul>
+    <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title , post_path(post)  %>
+      <%= link_to '[Edit]', edit_post_path(post),class: 'command' %>
+      <%=
+          link_to '[x]',
+          post_path(post),
+          method: :delete,
+          class: 'command',
+          data:{confirm: 'sure?'}
+      %>
+    </li>
+    <% end %>
+</ul>
+
